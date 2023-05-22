@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/jobs1.css' %}">
+</head>
+<body>
+    <h1>Pune Jobs Information</h1>
+    {% if jobs_list %}
+    <table border="2">
+        <thead>
+            <th>Date</th>
+            <th>Company</th>
+            <th>Title</th>
+            <th>Elegiblity</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phonenumber</th>
+        </thead>
+        {% for job in jobs_list %}
+        <tr>
+            <td>{{job.date}}</td>
+            <td>{{job.company}}</td>
+            <td>{{job.title}}</td>
+            <td>{{job.elegiblity}}</td>
+            <td>{{job.address}}</td>
+            <td>{{job.email}}</td>
+            <td>{{job.phonenumber}}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p id="specialp">No Jobs In Pune</p>
+    {% endif %}
+</body>
+</html>
